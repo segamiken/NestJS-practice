@@ -1,25 +1,26 @@
 version: "3"
 services:
-  nest-app-web:
+  app:
     build: .
     ports:
       - 3000:3000
     volumes:
       - ./:/work/
     links:
-      - nest-app-db
+      - db
     tty: true
-  
-  nest-app-db:
+
+  db:
     image: mysql:5.7
     volumes:
-      - mysql-data
+      - db-store
     environment:
-      MYSQL_ROOT_PASSWORD: "root"
-      MYSQL_USER: "root"
-      MYSQL_PASSWORD: "root"
-      MYSQL_DATABASE: "root"
+      MYSQL_ROOT_PASSWORD: "secret"
+      MYSQL_USER: "ken"
+      MYSQL_PASSWORD: "secret"
+      MYSQL_DATABASE: "test"
     ports:
       - 13306:3306
+
 volumes:
-  mysql-data:
+  db-store:
