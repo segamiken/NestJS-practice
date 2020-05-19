@@ -1,9 +1,9 @@
 import { Module } from "@nestjs/common";
 import { ProductsController } from "./products.controller";
-import { ProductsSercice } from "./products.service";
+import { ProductsService } from "./products.service";
 
 @Module({
     controllers: [ProductsController],
-    providers: [ProductsSercice],
+    providers: [ProductsService],
 })
 export class ProductsModule {}
